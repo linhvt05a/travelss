@@ -5,7 +5,7 @@ import Header from '../../component/Header/Header'
 function Settings({route, navigation }) {
     return (
         <View style={{flex: 1}}>
-            <Header navigation={navigation} route={route}/>
+            <Header navigation={navigation}/>
         </View>
     )
 }

@@ -1,42 +1,28 @@
 import React from 'react'
-import {View,Text,Image, StyleSheet,Dimensions,TouchableOpacity} from 'react-native'
+import {View,Text,Image,TouchableOpacity} from 'react-native'
+import styles from './headerStyle'
 
 
-const W = Dimensions.get('window').width;
-const H = Dimensions.get('window').height;
-
-function Header({navigation, route}) {
-    if(route.name == "Home"){
+function Header({navigation,route}) {
+    console.log(route)
+    if(route.name === "Home"){
         return (
             <View style={styles.header}>
-                <TouchableOpacity style={styles.button} onPress={()=>navigation.openDrawer()}>
-                    <Image source={require('./IconApp/menu.png')} style={ styles.image}/>
+                <TouchableOpacity onPress={()=>navigation.openDrawer()} style={styles.header_btn_H}>
+                    <Image source={require('../IconApp/menu20.png')} />
                 </TouchableOpacity>
             </View>
-        )
+          )
     }else{
         return (
             <View style={styles.header}>
+                <TouchableOpacity onPress={()=>navigation.goBack()} style={styles.header_arrow_left}>
+                    <Image source={require('../IconApp/left_arrow.png')} />
+                </TouchableOpacity>
             </View>
-        ) 
+        )
     }
-
+    
 }
-
-const styles = StyleSheet.create({
-    header:{
-        backgroundColor:'#ff5e00',
-        width: W,
-        height: H/8 - 40,
-        justifyContent:'center',
-        alignItems: 'flex-start'
-    },
-    image:{
-        width:20,
-        height:20,
-        position: 'absolute',
-        marginLeft: 20,
-    }
-})
 
 export default Header

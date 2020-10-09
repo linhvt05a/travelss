@@ -16,7 +16,7 @@ function Account({route, navigation}) {
       }, []);
     return (
         <View style={{flex: 1}}>
-            <Header navigation={navigation} route={route}/>
+            <Header navigation={navigation}/>
             <ActivityIndicator size="small" color="black" />
         </View>
     )

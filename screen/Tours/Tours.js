@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text,StyleSheet, ActivityIndicator } from 'react-native';
 import Header from '../../component/Header/Header';
 import {Place, TourList} from './index'
 
 function Tours({ route, navigation }) {
 	const [ isLoading, setLoading ] = useState(false);
-	if (route.name == 'Tours') {
-		setTimeout(function() {
+	useEffect(() => {
+		setTimeout(() => {
 			setLoading(true);
-		}, 5000);
-	}
+		}, 6000);
+	},[])
 	if (route.params == undefined) {
 		return (
 			<View style={{ flex: 1 }}>
-				<Header navigation={navigation} route={route} />
+				<Header navigation={navigation} route={route}/>
 				{!isLoading && <ActivityIndicator size="small" color="red" style={{marginTop:350}}/>}
 				{!isLoading && <Text style={styles.txtLoading}>Loading...</Text>}
 				{isLoading && (
@@ -24,10 +24,10 @@ function Tours({ route, navigation }) {
 	} else {
 		return (
 			<View style={{ flex: 1 }}>
-				<Header navigation={navigation} route={route} />
-				{!isLoading && <ActivityIndicator size="small" color="green" />}
+				<Header navigation={navigation} route={route}/>
+				{<ActivityIndicator size="small" color="red" style={{marginTop:350}}/>}
+					<Text style={styles.txtLoading}>Loading...</Text>
 				{isLoading && (
-					
 					<TourList />
 				)}
 			</View>

@@ -1,34 +1,49 @@
 import React, {useEffect,useState} from 'react';
-import { View, StyleSheet, ActivityIndicator, Image, Text, ImageBackground, FlatList, ScrollView } from 'react-native';
+import { View, StyleSheet, ActivityIndicator, Image, Text, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
+import Header from '../../component/Header/Header'
 
 function TourSchedule({ navigation, route }) {
 	const [isLoading,setLoading] = useState(false)
-	const { tour_name, tour_image, tour_id } = route.params;
-
 	useEffect(() => {
 		setTimeout(() => {
 			setLoading(true);
 		}, 6000);
 	},[])
+	if(route.params == undefined){
+		return(
+			<View style={{flex:1, marginTop: 400}}>
+					<ActivityIndicator size="small" color="red"/>
+					<Text style={styles.txtLoading}>Loading...</Text>
+			</View>
+		)
+	}else{
+		
 		if(!isLoading){
 			return(
 				<View style={{flex:1, marginTop: 400}}>
-						<ActivityIndicator size="small" color="red"/>
-						<Text style={styles.txtLoading}>Loading...</Text>
-				</View>
+					<ActivityIndicator size="small" color="red"/>
+					<Text style={styles.txtLoading}>Loading...</Text>
+			</View>
 			)
 		}else{
-			return <ViewLoading tour_name={tour_name} tour_image={tour_image}/>
+			const {tour_name, tour_image, tour_id} = route.params
+			return(
+				<ViewLoading tour_name={tour_name} tour_image={tour_image} navigation={navigation}/>
+			)
 		}
-		return<></>
-		
+		return <></>
+	}
 	
 }
-function ViewLoading ({tour_name, tour_image}){
+function ViewLoading ({tour_name, tour_image, navigation}){
 	return(
 		<View style={styles.container}>
 			<View style={styles.viewImg}>
-				<ImageBackground source={{ uri: tour_image }} style={styles.imageBg} />
+				<ImageBackground source={{ uri: tour_image }} style={styles.imageBg}>
+					<TouchableOpacity style={styles.imgArrow} onPress={()=> navigation.goBack()}>
+						<Image source={require('../../component/IconApp/left_arrow.png')} />
+					</TouchableOpacity>
+				</ImageBackground>
 				<Text style={styles.schedule_txt}>{tour_name}</Text>
 			</View>
 			<View>
@@ -108,7 +123,7 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	imageBg: {
-		flex: 1
+		flex: 1,
 	},
 	viewImg: {
 		height: 300,
@@ -167,6 +182,13 @@ const styles = StyleSheet.create({
 	txtLoading:{
 		marginLeft: 180,
 		marginTop: 20
+	  },
+	  imgArrow:{
+		  width:16,
+		  height:16,
+		  position:'absolute',
+		  marginTop: 35,
+		  marginLeft:20, 
 	  }
 });
 

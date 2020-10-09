@@ -94,7 +94,7 @@ function Place({navigation}) {
 			/>
                 <TouchableOpacity style={styles.img_tour_search} onPress={onSearch}>
                 <Image
-                    source={require('../../component/Header/IconApp/search16.png')}
+                    source={require('../../component/IconApp/search16.png')}
                     
                 />
                 </TouchableOpacity>
@@ -123,12 +123,12 @@ const ItemList = ({data,navigation}) =>{
                         <Text style={{width: 242, fontSize:14, fontWeight: 'bold'}}>{data.tour_name}</Text>
                     </TouchableOpacity>
                     <View style={{flex: 1, flexDirection:'row', marginTop:5}}>
-                        <Image source={require('../../component/Header/IconApp/clock.png')} width={16} height={16}/>
+                        <Image source={require('../../component/IconApp/clock.png')} width={16} height={16}/>
                         <Text style={{marginLeft: 3}}>{data.time_duration}</Text>
                         <Text style={{marginLeft: 33, color:'gray', textDecorationLine:'line-through'}}>{currencyFormat(data.price)}đ</Text>
                     </View>
                     <View style={{flex: 1, flexDirection:'row'}}>
-                        <Image source={require('../../component/Header/IconApp/calenda.png')} width={16} height={16}/>
+                        <Image source={require('../../component/IconApp/calenda.png')} width={16} height={16}/>
                         <Text style={{marginLeft: 3, width: 105}}>{data.time_in_week}</Text>
                         <Text style={{marginLeft: 20, fontSize: 15, color: 'red', fontWeight: 'bold'}}>{currencyFormat(data.price_offer)}đ</Text>
                     </View>
