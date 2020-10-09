@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Text,StyleSheet, ActivityIndicator } from 'react-native';
 import Header from '../../component/Header/Header';
+import {Place, TourList} from './index'
 
 function Tours({ route, navigation }) {
 	const [ isLoading, setLoading ] = useState(false);
@@ -9,15 +10,14 @@ function Tours({ route, navigation }) {
 			setLoading(true);
 		}, 5000);
 	}
-	if (route.params === undefined) {
+	if (route.params == undefined) {
 		return (
 			<View style={{ flex: 1 }}>
 				<Header navigation={navigation} route={route} />
-				{!isLoading && <ActivityIndicator size="small" color="red" />}
+				{!isLoading && <ActivityIndicator size="small" color="red" style={{marginTop:350}}/>}
+				{!isLoading && <Text style={styles.txtLoading}>Loading...</Text>}
 				{isLoading && (
-					<View>
-						<Text>1</Text>
-					</View>
+					<Place navigation={navigation}/>
 				)}
 			</View>
 		);
@@ -25,15 +25,21 @@ function Tours({ route, navigation }) {
 		return (
 			<View style={{ flex: 1 }}>
 				<Header navigation={navigation} route={route} />
-				<Text>{route.params.proviceID}</Text>
 				{!isLoading && <ActivityIndicator size="small" color="green" />}
 				{isLoading && (
-					<View>
-						<Text>2</Text>
-					</View>
+					
+					<TourList />
 				)}
 			</View>
 		);
 	}
 }
+
+const styles = StyleSheet.create({
+	txtLoading:{
+		marginLeft: 180,
+		marginTop: 20
+	  },
+})
+
 export default Tours;

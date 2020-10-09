@@ -50,11 +50,9 @@ const Item = ({navigation,data, route}) => (
        navigation.navigate('Tours',{
         provinceID: data.id
       })}}>
-      <View >
-        <ImageBackground source={{uri:data.image}} style={styles.image} resizeMode='cover' blurRadius={3}>
+        <ImageBackground source={{uri:data.image}} style={styles.image}>
               <Text style={styles.home_place_title}>{data.title}</Text>
         </ImageBackground>
-      </View>
     </TouchableOpacity>
 )
 
@@ -70,21 +68,18 @@ const styles = StyleSheet.create({
       fontWeight: "bold"
     },
     GridViewContainer: {
-     paddingTop: 10,
-     paddingLeft: 11
+     padding: 5,
+     paddingLeft: 10
   },
    image:{
      width: 190,
      height: 150,
-    justifyContent:'center',
-    alignItems: 'center'
+    borderRadius: 20
    },
    header: {
      backgroundColor: 'red',
      height: 60,
      width : 414,
-     justifyContent:'center',
-     alignItems:'center',
      paddingTop: 10
    },
    header_text : {
@@ -98,8 +93,10 @@ const styles = StyleSheet.create({
    },
    home_place_title:{
      color: 'white',
-     fontSize:20,
+     fontSize:16,
      fontWeight: 'bold',
+     paddingTop: 130,
+     paddingLeft: 10
    }
   });
 export default Home

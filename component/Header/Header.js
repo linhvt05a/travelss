@@ -25,7 +25,7 @@ function Header({navigation, route}) {
 
 const styles = StyleSheet.create({
     header:{
-        backgroundColor:'red',
+        backgroundColor:'#ff5e00',
         width: W,
         height: H/8 - 40,
         justifyContent:'center',
