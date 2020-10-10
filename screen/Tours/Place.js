@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image,FlatList, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import  {currencyFormat} from '../../component/Convert/Convert'
 
-function currencyFormat(num) {
-    return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
- }
 function Place({navigation}) {
     const [ strSearch, setSearch ] = useState('');
     const[data, setData] = useState([  

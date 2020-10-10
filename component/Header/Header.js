@@ -1,10 +1,9 @@
 import React from 'react'
-import {View,Text,Image,TouchableOpacity} from 'react-native'
-import styles from './headerStyle'
+import {View,Image,TouchableOpacity} from 'react-native'
+import {styles} from './index'
 
 
 function Header({navigation,route}) {
-    console.log(route)
     if(route.name === "Home"){
         return (
             <View style={styles.header_contain_bell}>

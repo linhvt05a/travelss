@@ -23,7 +23,7 @@ const App = () => {
 						let iconName;
 
 						if (route.name === 'Home') {
-							iconName = focused ? 'boat-outline' : 'boat-outline';
+							iconName = focused ? 'search-outline' : 'search-outline';
 						} else if (route.name === 'Tour') {
 							iconName = focused ? 'calendar-outline' : 'calendar-outline';
 						} else if (route.name === 'Account') {
