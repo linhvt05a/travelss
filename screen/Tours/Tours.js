@@ -14,7 +14,7 @@ function Tours({ route, navigation }) {
 		return (
 			<View style={{ flex: 1 }}>
 				<Header navigation={navigation} route={route}/>
-				{!isLoading && <ActivityIndicator size="small" color="red" style={{marginTop:350}}/>}
+				{!isLoading && <ActivityIndicator size="small" color="red" style={{marginTop:300}}/>}
 				{!isLoading && <Text style={styles.txtLoading}>Loading...</Text>}
 				{isLoading && (
 					<Place navigation={navigation}/>

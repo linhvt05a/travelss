@@ -28,10 +28,10 @@ const Home = ({navigation, route}) => {
 
     return (
        <View style={styles.container}>
-         {isLoading && <Header navigation={navigation} route={route}/>}
-          {!isLoading && <ActivityIndicator color="#f54242"/>}
+         <Header navigation={navigation} route={route}/>
+          {!isLoading && <ActivityIndicator color="#f54242" style={{marginTop: 300}}/>}
           {!isLoading && <Text style={styles.txtLoading}>Loading...</Text>}
-          {isLoading 
+          {/* {isLoading 
           && <FlatList
             data={GridListItems}
             renderItem={renderItem}
@@ -40,7 +40,7 @@ const Home = ({navigation, route}) => {
             showsVerticalScrollIndicator = {false}
             refreshing ={false}
             onRefresh={()=>console.log('dasdasdas')}
-         />}
+         />} */}
        </View>
     )
 }
@@ -59,7 +59,6 @@ const Item = ({navigation,data, route}) => (
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: "center",
     },
     headerText: {
       fontSize: 20,

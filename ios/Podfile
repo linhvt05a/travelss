@@ -5,9 +5,8 @@ platform :ios, '10.0'
 
 target 'travel' do
   config = use_native_modules!
-pod 'RNVectorIcons'
-  use_react_native!(:path => config["reactNativePath"])
 
+pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   target 'travelTests' do
     inherit! :complete
     # Pods for testing
